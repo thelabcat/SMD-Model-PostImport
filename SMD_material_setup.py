@@ -1,4 +1,4 @@
-#Material setup script for game models, v1.5.1
+#Material setup script for SMD models, v1.5.1
 #TYL!!!
 
 """
@@ -57,7 +57,7 @@ except ImportError:
 
 import glob
 
-MAT_PATH="F:\\3D_models\\Sonic\\images"
+MAT_PATH="F:\\3D_models\\Jaywright\\images"
 IMAGES=glob.glob(MAT_PATH+"\\*")
 DISP_SCALE=0.00254
 
