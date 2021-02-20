@@ -1,4 +1,4 @@
-#Material setup script for SMD models, v1.5.1
+#Material setup script for SMD models, v1.5.2
 #TYL!!!
 
 """
@@ -29,6 +29,8 @@ INSTRUCTIONS:
 
 
 CHANGELOG:
+    version 1.5.2:
+        -Fixed missing displacement node connection to output
     version 1.5.1:
         -Improvements to doc
     version 1.5:
@@ -197,7 +199,7 @@ for mat in bpy.data.materials:
             disp_node=mat.node_tree.nodes.new('ShaderNodeDisplacement')
             disp_node.inputs["Scale"].default_value=DISP_SCALE
             mat.node_tree.links.new(img_node.outputs["Color"], disp_node.inputs["Height"])
-        
+            mat.node_tree.links.new(disp.outputs["Displacement"], output.inputs["Displacement"])
         elif "pow" in img_name:
             #Inverted roughness
             img_node.image.colorspace_settings.name="Non-Color"
